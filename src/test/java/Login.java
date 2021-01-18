@@ -1,8 +1,10 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.sql.Driver;
@@ -13,7 +15,7 @@ public class Login {
 
     @Before
     public void initDriver(){
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","resources/chromedriver2.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://testfasttrackit.info/selenium-test/");
@@ -28,6 +30,9 @@ public class Login {
         driver.findElement(By.cssSelector("#email")).sendKeys("balan_claudiu90@yahoo.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("123456");
         driver.findElement(By.cssSelector("#send2")).click();
+        WebElement welcomeElement = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div > div.welcome-msg > p.hello > strong"));
+        Assert.assertTrue(welcomeElement.isDisplayed());
+        Assert.assertEquals("Hello, Balan Claudiu!",welcomeElement.getText());
 
     }
 

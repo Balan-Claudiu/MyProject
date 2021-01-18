@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ public class AddToCart {
 
     @Test
     public void addToCart() {
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","resources/chromedriver2.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://testfasttrackit.info/selenium-test/");
 
@@ -28,9 +29,11 @@ public class AddToCart {
         driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.category-products > ul > li:nth-child(1) > div > div.actions > a")).click();
         driver.findElement(By.cssSelector("#swatch17 > span.swatch-label > img")).click();
         driver.findElement(By.cssSelector("#swatch78 > span.swatch-label")).click();
-        driver.findElement(By.cssSelector("#product_addtocart_form > div.product-shop > div.product-options-bottom > div.add-to-cart > div.add-to-cart-buttons > button")).click();
+        WebElement shirt = driver.findElement(By.cssSelector("#product_addtocart_form > div.product-shop > div.product-name > span"));
+        Assert.assertTrue(shirt.isDisplayed());
+        Assert.assertEquals("PLAID COTTON SHIRT",shirt.getText());
 
 
-        driver.quit();
+
     }
 }

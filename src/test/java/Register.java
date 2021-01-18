@@ -7,7 +7,7 @@ public class Register {
 
     @Test
     public void register(){
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","resources/chromedriver2.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://testfasttrackit.info/selenium-test/");
 
