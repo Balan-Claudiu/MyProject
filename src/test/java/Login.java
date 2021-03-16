@@ -26,7 +26,7 @@ public class Login {
 
 
         driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector("a[title='Log In']")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("balan_claudiu90@yahoo.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("123456");
         driver.findElement(By.cssSelector("#send2")).click();
