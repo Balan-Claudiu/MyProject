@@ -17,18 +17,18 @@ public class AddToCart {
 
         Actions action = new Actions(driver);
 
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
+        driver.findElement(By.cssSelector(".skip-account .label")).click();
         driver.findElement(By.cssSelector("a[title='Log In']")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("balan_claudiu90@yahoo.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("123456");
         driver.findElement(By.cssSelector("#send2")).click();
 
-        WebElement men = driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-2.parent > a"));
+        WebElement men = driver.findElement(By.cssSelector(".nav-2 .has-children"));
         action.moveToElement(men).perform();
-        driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-2.parent > ul > li.level1.nav-2-2 > a")).click();
-        driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.category-products > ul > li:nth-child(1) > div > div.actions > a")).click();
-        driver.findElement(By.cssSelector("#swatch17 > span.swatch-label > img")).click();
-        driver.findElement(By.cssSelector("#swatch78 > span.swatch-label")).click();
+        driver.findElement(By.cssSelector(".nav-2-2 a ")).click();
+        driver.findElement(By.cssSelector("li>a[title*='Plaid Cotton Shirt']")).click();
+        driver.findElement(By.cssSelector("#swatch17 .swatch-label")).click();
+        driver.findElement(By.cssSelector("img[alt*='Charcoal']")).click();
         WebElement shirt = driver.findElement(By.cssSelector("#product_addtocart_form > div.product-shop > div.product-name > span"));
         Assert.assertTrue(shirt.isDisplayed());
         Assert.assertEquals("PLAID COTTON SHIRT",shirt.getText());
